@@ -1,0 +1,165 @@
+{
+  "categories": [
+    {
+      "slug": "missions",
+      "variables": [
+        {
+          "slug": "crime",
+          "metrics": [
+            { "slug": "total-crimes-committed" },
+            { "slug": "change-in-total-crimes-committed" },
+            { "slug": "total-crimes-committed-per-1000-population" },
+            { "slug": "total-homicides-per-1000-population}" }
+          ]
+        },
+        {
+          "slug": "digital-connectivity",
+          "metrics": [
+            { "slug": "gigabit-availability-(premises)" },
+            { "slug": "4g-coverage-(premises)" },
+            { "slug": "4g-coverage-(geography)}" }
+          ]
+        },
+        {
+          "slug": "education",
+          "metrics": [
+            { "slug": "eyfsp-achieved-expected-standard-(communication)" },
+            { "slug": "eyfsp-achieved-expected-standard-(literacy)" },
+            { "slug": "eyfsp-achieved-expected-standard-(maths)" },
+            {
+              "slug": "ks2-achieved-expected-standard-(reading-writing-and-maths)"
+            },
+            { "slug": "gcse-achieved-english-by-age-19" },
+            { "slug": "gcse-achieved-maths-by-age-19" },
+            { "slug": "gcse-achieved-english-and-maths-by-age-19" },
+            { "slug": "ofsted-schools-rated-good-or-oustanding" },
+            { "slug": "pupils-persistent-absence}" }
+          ]
+        },
+        {
+          "slug": "health",
+          "metrics": [
+            { "slug": "child-obesity-(age-4-5)" },
+            { "slug": "child-obesity-(age-10-11)" },
+            { "slug": "adult-obesity" },
+            { "slug": "preventable-cardiovascular-related-deaths-(age-<75)" },
+            { "slug": "cancer-diagnoses-at-stage-1-or-2" },
+            { "slug": "smoking-prevalence-(age-18+)" },
+            { "slug": "male-healthy-life-expectancy-(hle)" },
+            { "slug": "female-healthy-life-expectancy-(hle)}" }
+          ]
+        },
+        {
+          "slug": "housing",
+          "metrics": [{ "slug": "net-additions-to-housing-stock" }]
+        },
+        {
+          "slug": "living-standards",
+          "metrics": [
+            { "slug": "employment-rate-(age-16-64)" },
+            { "slug": "gross-value-added-(gva)-per-hour-worked" },
+            { "slug": "total-gross-value-added-(gva)" },
+            { "slug": "gross-disposable-household-income-(gdhi)" },
+            { "slug": "gross-median-weekly-pay" },
+            { "slug": "economic-participation-rate-(age-16-64)" },
+            { "slug": "skilled-employment" },
+            { "slug": "disabled-employment-rate-gap" },
+            { "slug": "disabled-employment-rate}" }
+          ]
+        },
+        {
+          "slug": "research-and-development",
+          "metrics": [{ "slug": "uk-research-and-innovation-(ukri)-spend}" }]
+        },
+        {
+          "slug": "skills",
+          "metrics": [
+            { "slug": "apprenticeships-starts" },
+            { "slug": "apprenticeships-participation" },
+            { "slug": "apprenticeships-participation-per-100k-population" },
+            { "slug": "apprenticeships-attainment" },
+            { "slug": "apprenticeships-attainment-per-100k-population" },
+            { "slug": "nvq-individuals-with-nvq-3+-(aged-16-64)" },
+            {
+              "slug": "education/training-level-3-participation-per-100k-population"
+            },
+            {
+              "slug": "education/training-level-4+-participation-per-100k-population"
+            },
+            {
+              "slug": "education/training-level-3-attainment-per-100k-population"
+            },
+            {
+              "slug": "education/training-level-4+-attainment-per-100k-population"
+            },
+            {
+              "slug": "further-education-level-3-participation-per-100k-population"
+            },
+            {
+              "slug": "further-education-level-4+-participation-per-100k-population"
+            },
+            {
+              "slug": "further-education-level-3-attainment-per-100k-population"
+            },
+            {
+              "slug": "further-education-level-4+-attainment-per-100k-population}"
+            }
+          ]
+        },
+        {
+          "slug": "transport",
+          "metrics": [
+            { "slug": "average-cycle-time-to-nearest-employment-centre" },
+            {
+              "slug": "average-public-transport-and-walking-time-to-nearest-employment-centre"
+            },
+            {
+              "slug": "average-private-car-driving-time-to-nearest-employment-centre"
+            },
+            { "slug": "average-waiting-time-for-frequent-bus-services}" }
+          ]
+        },
+        {
+          "slug": "wellbeing",
+          "metrics": [
+            { "slug": "individuals-reporting-low-life-satisfaction" },
+            {
+              "slug": "individuals-reporting-feeling-things-done-in-life-are-not-worthwhile"
+            },
+            { "slug": "individuals-reporting-low-happiness" },
+            { "slug": "individuals-reporting-high-anxiety" },
+            { "slug": "average-satisfaction-with-life" },
+            { "slug": "average-feeling-things-done-in-life-are-worthwhile" },
+            { "slug": "average-reported-happiness" },
+            { "slug": "average-reported-anxiety" },
+            { "slug": "average-monthly-claimant-rate}" }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "indicators",
+      "variables": [
+        {
+          "slug": "deprivation",
+          "metrics": [
+            { "slug": "index-of-multiple-deprivation-(imd)" },
+            { "slug": "income-deprivation-affecting-children-index-(idaci)" },
+            {
+              "slug": "income-deprivation-affecting-older-people-index-(idaopi)}"
+            }
+          ]
+        },
+        {
+          "slug": "subnational-expenditure",
+          "metrics": [
+            { "slug": "dluhc-enabled-spend" },
+            { "slug": "dluhc-enabled-spend-per-person" },
+            { "slug": "dluhc-spend-on-housing-and-planning-per-person" },
+            { "slug": "dluhc-spend-on-local-growth-and-devolution-per-person}" }
+          ]
+        }
+      ]
+    }
+  ]
+}
