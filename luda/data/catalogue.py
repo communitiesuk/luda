@@ -8,4 +8,4 @@ from luda.data.models.core import Category
 def load_catalogue() -> list[Category]:
     with open("data/datasets.json", encoding="utf-8") as file:
         payload = json.load(file)
-        return [Category(**c) for c in payload["categories"]]
+        return [Category(**c) for c in payload]
