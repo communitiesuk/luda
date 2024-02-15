@@ -1,9 +1,13 @@
+"""Constant definitions for LUDA."""
+
 from __future__ import annotations
 
 from enum import Enum
 
 
 class Mission(Enum):
+    """The 12 Levelling Up Missions."""
+
     @staticmethod
     def from_str(name: str) -> Mission:
         return Mission[name.upper()]

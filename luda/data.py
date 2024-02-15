@@ -1,3 +1,5 @@
+"""Catalogue of datasets available for use in the LUDA system."""
+
 from luda.constants import Mission
 from luda.dataset import Dataset
 
