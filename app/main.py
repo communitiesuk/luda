@@ -1,18 +1,12 @@
-from typing import Optional
-
 from fastapi import FastAPI
 
-from luda.data import CATALOGUE
-from luda.dataset import Dataset
+from .routers.missions import router as missions_router
 
 app = FastAPI()
+
+app.include_router(missions_router)
 
 
 @app.get("/")
 def read_root():
     return "LUDA is live."
-
-
-@app.get("/datasets/{id}")
-def get_dataset(id: str) -> Optional[Dataset]:
-    return CATALOGUE.get(id)
