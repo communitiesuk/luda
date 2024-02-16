@@ -15,15 +15,15 @@ class Mission(Enum):
     def __str__(self) -> str:
         return self.name
 
-    LIVING = "living-standards"
-    RESEARCH = "research"
+    LIVING_STANDARDS = "living-standards"
+    RESEARCH_AND_DEVELOPMENT = "research-and-development"
     TRANSPORT = "transport"
-    DIGITAL = "digital"
+    DIGITAL_CONNECTIVITY = "digital-connectivity"
     EDUCATION = "education"
     SKILLS = "skills"
     HEALTH = "health"
     WELLBEING = "wellbeing"
-    PRIDE = "pride"
+    PRIDE_IN_PLACE = "pride-in-place"
     HOUSING = "housing"
     CRIME = "crime"
-    LEADERSHIP = "leadership"
+    LOCAL_LEADERSHIP = "local-leadership"
