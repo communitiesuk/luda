@@ -4,9 +4,7 @@ version = "0.0.1"
 description = ""
 authors = ["ellsphillips <elliott.phillips@levellingup.gov.uk>"]
 readme = "README.md"
-packages = [
-    { include = "luda" },
-]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"

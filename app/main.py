@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-
-from .routers.missions import router as missions_router
+from routers.missions import router as missions_router
 
 app = FastAPI()
 

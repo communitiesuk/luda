@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from luda.data import models
+from lib.data import models
 
 
 @dataclass
