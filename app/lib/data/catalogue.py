@@ -16,7 +16,7 @@ class ContentStore:
 
     def __post_init__(self) -> None:
         """Load the catalogue from disk."""
-        location = Path.cwd() / "data" / "datasets.json"
+        location = Path.cwd() / "app" / "data" / "datasets.json"
         with location.open(encoding="utf8") as file:
             data = json.load(file)
             self.categories = [models.Category(**c) for c in data]

@@ -11,6 +11,8 @@ python = "^3.9"
 fastapi = "^0.109.2"
 gunicorn = "^21.2.0"
 uvicorn = "^0.27.1"
+httpx = "^0.26.0"
+requests = "^2.23.0"
 
 [tool.poetry.group.dev.dependencies]
 # runner
@@ -29,7 +31,6 @@ types-requests = "^2.28.11.13"
 pytest = "^7.2.1"
 pytest-cov = "^4.0.0"
 pytest-mock = "^3.10.0"
-
 
 [tool.pytest.ini_options]
 pythonpath = ["app"]
