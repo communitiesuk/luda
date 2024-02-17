@@ -8,5 +8,6 @@ app.include_router(missions_router)
 
 
 @app.get("/")
-def read_root():
+def read_root() -> str:
+    """Root endpoint for the LUDA app."""
     return "LUDA is live."

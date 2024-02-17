@@ -135,6 +135,9 @@ ignore = [
     "UP007", # ignore or-wise typing for py3.9 support
     "UP035", # allow use of typing.Callable
 ]
+exclude = [
+    "gunicorn_conf.py",
+]
 
 [tool.ruff.per-file-ignores]
 "docs/conf.py" = [
