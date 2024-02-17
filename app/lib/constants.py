@@ -10,9 +10,11 @@ class Mission(Enum):
 
     @staticmethod
     def from_str(name: str) -> Mission:
+        """Convert a string to a Mission."""
         return Mission[name.upper()]
 
     def __str__(self) -> str:
+        """Return the name of the Mission."""
         return self.name
 
     LIVING_STANDARDS = "living-standards"

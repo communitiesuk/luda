@@ -1,84 +1,164 @@
 [tool.poetry]
-name = "luda"
+name = "app"
 version = "0.0.1"
 description = ""
 authors = ["ellsphillips <elliott.phillips@levellingup.gov.uk>"]
 readme = "README.md"
-packages = [
-    { include = "luda" },
-]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.109.2"
 gunicorn = "^21.2.0"
 uvicorn = "^0.27.1"
+httpx = "^0.26.0"
+requests = "^2.23.0"
 
-[tool.poetry.dev-dependencies]
-pytest = "7.2.0"
-pytest-cov = "^3.0.0"
-mypy = "^1.7.1"
-coverage = "6.3.2"
+[tool.poetry.group.dev.dependencies]
+# runner
+nox = "^2022.11.21"
+pre-commit = "^3.5.0"
+# format
+black = "^23.1.0"
 isort = "^5.12.0"
-pre-commit = "^2.20.0"
-black = {version = "^22.6.0", allow-prereleases = true}
-flake8 = "^5.0.4"
-pylint = "2.13.0"
+# lint
+ruff = "^0.2.1"
+# typecheck
+mypy = "^1.0.1"
+typing-extensions = "^4.5.0"
+types-requests = "^2.28.11.13"
+# test
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
 
 [tool.pytest.ini_options]
-addopts = "--cov=luda"
-testpaths = ["tests/luda"]
-filterwarnings = "ignore::pytest.PytestDeprecationWarning"
+pythonpath = ["app"]
 
+[tool.coverage.paths]
+source = ["app"]
+
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+show_missing = true
+# appl_under = 100
+exclude_also = [
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
 
 [tool.mypy]
-mypy_path = "luda"
-check_untyped_defs = true
-disallow_any_generics = true
+strict = true
+exclude = ["noxfile.py", "tests/"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = [
+    'mlflow.*',
+    'run_llm_refactored',
+    'store_embedding_vectors_refactored',
+    'dotenv'
+]
 ignore_missing_imports = true
-no_implicit_optional = true
-show_error_codes = true
-strict_equality = true
-warn_redundant_casts = true
-warn_return_any = true
-warn_unreachable = true
-warn_unused_configs = true
-no_implicit_reexport = true
 
+[tool.ruff]
+select = [
+    "A", # flake8-builtins (redefinition of bultins)
+    "ANN", # flake8-annotations (type annotations are everywhere)
+    "ARG", # flake8-unused-arguments (unused argument in function/method/class/lambda)
+    "B", # flake8-bugbear (bugs & design problems)
+    "B9", # flake8-bugbear strict (bugs & design problems)
+    "BLE", # flake8-blind-except (no "except:" or "except Exception:")
+    # "COM", # flake8-commas (force trailing commas) -> unelegant
+    "C4", # flake8-comprehensions (better list/set/dict comprehensions)
+    "C90", # McCabe (code complexity)
+    "D", # pydocstyle (documentation style)
+    "DJ", # flake8-django (practices on Django)
+    "DTZ", # flake8-datetimez (usage of unsafe naive datetime class)
+    "E", # pycodestyle (violation of PEP-8)
+    "EM", # flake8-errmsg (format error messages)
+    "EXE", # flake8-executable (executable permissions and shebangs)
+    "ERA", # eradicate (no commented-out code)
+    "F", # pyflakes (invalid Python code)
+    "FBT", # flake8-boolean-trap (misusage of booleans in function declaration & calls)
+    "G", # flake8-logging-format (logging format strings)
+    "I", # isort (import order)
+    "ICN", # flake8-import-conventions (how certain packages should be imported or aliased)
+    # "INP", # flake8-no-pep420 (ban PEP-420 implicit namespace packages) -> long live implicit namespace packages!
+    "INT", # flake8-gettext (f-string resolved before function calls)
+    "ISC", # flake8-implicit-str-concat (string literal concatenation)
+    "N", # pep8-naming (naming conventions)
+    "NPY", # NumPy-specific rules (e.g. deprecated-type-alias and legacy-random)
+    "PD", # pandas-vet (pandas code)
+    "PIE", # flake8-pie (miscellaneous lints)
+    "PGH", # pygrep-hooks (miscellaneous lints, e.g. "use specific rule codes when using noqa")
+    "PL", # Pylint (static code analyser)
+    "PT", # flake8-pytest-style (style issues or inconsistencies with pytest-based tests)
+    "PTH", # flake8-use-pathlib (use of functions that can be replaced by pathlib module)
+    "PYI", # flake8-pyi (provide specializations for type hinting stub files)
+    "Q0", # flake8-quotes (avoid escaping quotes)
+    "RSE", # flake8-raise (improvements for raise statements)
+    "RET", # flake8-return (check return values)
+    "RUF", # ruff-specific rules
+    "S", # flake8-bandit (security)
+    "SIM", # flake8-simplify (tips to simplify the code)
+    "SLF", # flake8-self (private member access)
+    "T10", # flake8-debugger
+    "T20", # flake8-print (no print nor pprint)
+    "TCH", # flake8-type-checking (move import only intended for type-checking in "if TYPE_CHECKING" blocs)
+    "TID", # flake8-tidy-imports (ordonated imports)
+    "TRY", # tryceratops (exception handling AntiPatterns)
+    "UP", # pyupgrade (upgrate syntax for newer versions of Python)
+    "YTT", # flake8-2020 (misuse of sys.version and sys.version_info)
+    "W" # pycodestyle (violation of PEP-8)
+]
+ignore = [
+    "ANN101", # missing type annotation for self, but hinting self all the time is useless
+    "ANN102", # missing type annotation for cls but hinting cls all the time is useless
+    "ANN401", # disallows Any, but some elements should be Any when they are external
+    "B024", # forces abstract classes to have at least one abstract method, but sometimes a class is virtually abstract
+    "D100", # Missing docstring in public module
+    "D105", # docstrings on magic methods, useless docstrings are well known
+    "DTZ011", # naive datetime is used, but it's OK for the user to use it
+    "E501", # line size, but bug-bear already set it with a tolerance of 10% (B950)
+    "TCH001", # ignore import only for type-checking in "if TYPE_CHECKING" blocks
+    "UP007", # ignore or-wise typing for py3.9 support
+    "UP035", # allow use of typing.Callable
+]
+exclude = [
+    "gunicorn_conf.py",
+]
 
-[tool.setuptools.package-data]
-luda = ["py.typed"]
+[tool.ruff.per-file-ignores]
+"docs/conf.py" = [
+    "A001" # redefine some builtins (like "copyright") is OK in docs
+]
+"noxfile.py" = [
+    "D402" # repeating the name of the function is OK for nox since it's to display it to the user
+]
+"tests/*" = [
+    "ARG", # some arguments are unused in tests functions but useful (e.g. mocks)
+    "S101", # asserts are OK for tests
+    "SLF001" # accessing private members is OK for tests
+]
 
-[tool.isort]
-multi_line_output = 3
-include_trailing_comma = true
-force_grid_wrap = 0
-use_parentheses = true
-line_length = 88
-profile = "black"
+[tool.ruff.pydocstyle]
+convention = "google"
 
-[tool.black]
-line-length = 88
-target-version = ['py38']
-include = '\.pyi?$'
-exclude = '''
-(
-  /(
-      \.eggs         # exclude a few common directories in the
-    | \.git          # root of the project
-    | \.hg
-    | \.mypy_cache
-    | \.tox
-    | \.venv
-    | _build
-    | buck-out
-    | build
-    | dist
-  )/
-  | foo.py           # also separately exclude a file named foo.py in
-                     # the root of the project
-)
-'''
+[tool.ruff.isort]
+known-first-party = ["app"]
+
 
 [build-system]
 requires = ["poetry-core"]
