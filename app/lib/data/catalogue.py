@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-from lib.data import models
+from app.lib.data import models
 
 
 @dataclass

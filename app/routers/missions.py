@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
-from lib.constants import Mission
-from lib.data.catalogue import ContentStore
-from lib.data.models.core import Category, Metric
+from app.lib.constants import Mission
+from app.lib.data.catalogue import ContentStore
+from app.lib.data.models.core import Category, Metric
 
 router = APIRouter(
     prefix="/missions",
