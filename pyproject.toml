@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "luda"
+name = "app"
 version = "0.0.1"
 description = ""
 authors = ["ellsphillips <elliott.phillips@levellingup.gov.uk>"]
