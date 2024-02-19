@@ -1,5 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
 
+from app.db.core import NotFoundError, get_db
+from app.db.missions import read_db_mission
 from app.lib.constants import Mission
 from app.lib.data.catalogue import ContentStore
 from app.lib.data.models.core import Category, Metric
@@ -17,15 +20,13 @@ def read_root() -> list[Category]:
 
 
 @router.get("/{mission}")
-def read_mission(mission: Mission) -> list[Metric]:
+def read_mission(mission: Mission, db: Session = Depends(get_db)) -> Mission:
     """List all metrics for a given mission."""
-    store = ContentStore()
-
-    for variable in store.variables:
-        if variable.slug == mission.value:
-            return variable.metrics
-
-    raise HTTPException(status_code=404, detail="Mission not found")
+    try:
+        db_mission = read_db_mission(mission, db)
+    except NotFoundError as e:
+        raise HTTPException(status_code=404) from e
+    return Mission(**db_mission.__dict__)
 
 
 @router.get("/{mission}/{dataset_id}")
